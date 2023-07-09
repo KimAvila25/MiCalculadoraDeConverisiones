@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Conversiones">
+        <meta name="keywords" content="Formulario">
+        <meta name="author" content="Kimberly Avila">
+
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-utilices.min.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="style/sweetalertt2/sweetalest2.min.css">
+
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Conversiones de Temperatura, Longitud y Monedas</h1>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Temperatura</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label" for="txtTemperatura">Introduce Cent&iacute;grados</label>
+                                <input id="txtTemperatura" class="form-control" type="text" />
+                            </div>
+                            <button type="button" class="btn btn-outline-primary  mt-2" onclick="calcularTemperatura(1)">Fahrenheit</button>
+                            <button type="button" class="btn btn-outline-primary  mt-2" onclick="calcularTemperatura(2)">Kelvin</button>
+                            <button type="button" class="btn btn-outline-primary  mt-2" onclick="calcularTemperatura(3)">Fahrenheit a Cent&iacute;grados</button>
+                            <button type="button" class="btn btn-outline-primary  mt-2" onclick="calcularTemperatura(4)">Fahrenheit a Kelvin</button>
+                            <button type="button" class="btn btn-outline-primary  mt-2" onclick="calcularTemperatura(5)">Kelvin a Cent&iacute;grados</button>
+                            <button type="button" class="btn btn-outline-primary  mt-2" onclick="calcularTemperatura(6)">Kelvin a Fahrenheit</button>
+                            <div class="form-group">
+                                <label class="form-label" for="txtResultado">Resultado:</label>
+                                <input id="txtResultado" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Longitud</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label" for="txtMedidas">Introduce Cent&iacute;metros</label>
+                                <input id="txtMedidas" class="form-control" type="text" />
+                            </div>
+                            <button class="btn btn-outline-info mt-2" onclick="calcularLongitudes(1)">Pulgadas</button>
+                            <button class="btn btn-outline-info mt-2" onclick="calcularLongitudes(2)">Pies</button>
+                            <button class="btn btn-outline-info mt-2" onclick="calcularLongitudes(3)">Yardas</button>
+                            <button class="btn btn-outline-info mt-2" onclick="calcularLongitudes(4)">Millas</button>
+                            <div class="form-group">
+                                <label class="form-label" for="txtResultado2">Resultado:</label>
+                                <input id="txtResultado2" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Moneda</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label" for="txtCantidad">Introduce Peso Mexicano</label>
+                                <input id="txtCantidad" class="form-control" type="text" />
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(1)">Dolar Estadounidense</button>
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(2)">Dolar Canadiense</button>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(3)">Euro</button>
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(4)">Libra Esterlina</button>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(5)">Peso Chileno</button>
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(6)">Peso Uruguayo</button>
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(7)">Rupia</button>
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(8)">Yen</button>
+                                <button class="btn btn-outline-dark mt-2" onclick="calcularMonedas(9)">Zloty</button>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="txtResultado3">Resultado:</label>
+                                <input id="txtResultado3" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Temperatura</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Para Grados Fahrenheirt, 1 cent&iacute;grado es igual a 33.8 grados, para esto se ocupa la formula de ((centigrados * 1.8) + 32).</li>
+                                <li>Para Grados Kelvin, 1 cent&iacute;grado es igual a 273.15 grados, para esto se ocupa la formula de (centigrados + 273.15).</li>
+                                <li>Para Grados Fahrenheirt a Cent&iacute;grados, 1 Fahrenheirt es igual a -17.05 grados, para esto se ocupa la formula de ((tem - 32) * 0.55).</li>
+                                <li>Para Grados Fahreheirt a Kelvin, 1 Fahrenheirt es igual a 291.29 grados, para esto se ocupa la formula de ((tem + 32) * 0.55 + 273.15).</li>
+                                <li>Para Grados Kelvin a Cent&iacute;grados, 1 Kelvin es igual a -272.15 grados, para esto se ocupa la formula de (tem - 273.15).</li>
+                                <li>Para Grados Kelvin a Fahrenheirt, 1 Kelvin es igual a -457.86 grados, para esto se ocupa la formula de ((tem - 273.15) * 1.8 + 32).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Longitudes</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Para las  Pulgadas, 1 pulgada es igual a 2.54 cent&iacute;metros, para esto se ocupa la formula de (cent&iacute;metros / 2.54).</li>
+                                <li>Para los Pies, 1 pie es igual a 30.48 cent&iacute;metros, para esto se ocupa la formula de (cent&iacute;metros / 30.48).</li>
+                                <li>Para las  Yardas, 1 Yarda es igual a 91.44 cent&iacute;metros, para esto se ocupa la formula de (cent&iacute;metros / 91.44).</li>
+                                <li>Para los Millas, 1 Milla es igual a 1.609 cent&iacute;metros, para esto se ocupa la formula de (cent&iacute;metros / 1.609).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Monedas</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Para el Dolar Estadounidense, 1 dolar es igual a 24.04 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 24.04).</li>
+                                <li>Para el Dolar Canadiense, 1 dolar es igual a 17.24 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 17.24).</li>
+                                <li>Para el Euro, 1 euro es igual a 26.2 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 26.2).</li>
+                                <li>Para la Libra Esterlina, 1 esterlina es igual a 30.05 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 30.05).</li>
+                                <li>Para el Peso Chileno, 1 peso chileno es igual a 0.028 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 0.028).</li>
+                                <li>Para el Peso Uruguayo, 1 peso uruguayo es igual a 0.56 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 0.56).</li>
+                                <li>Para la Rupia, 1 rupio es igual a 0.32 pesos emxicanos, para esto se ocupa la formula de (peso mexicano / 0.32).</li>
+                                <li>Para el Yen, 1 yen es igual a 0.22 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 0.22).</li>
+                                <li>Para el Zloty, 1 zloty es igual a 5.78 pesos mexicanos, para esto se ocupa la formula de (peso mexicano / 5.78).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="style/bootstrap/js/bootstrap.bundle.min.js"></script>    
+        <script src="style/sweetalert2/sweetalert2.all.min.js"></script> 
+        <script src="style/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="js/conversiones.js"></script>
+
+    </body>
+</html>
